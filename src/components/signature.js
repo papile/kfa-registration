@@ -37,7 +37,7 @@ const Signature = () => {
           />
         </div>
       </div>
-      <button class="flex-end bg-blue-900 text-white font-semibold text-xl px-8 py-2 outline-none rounded-full text-center uppercase">Agree</button>
+      <button class="flex-end bg-blue-900 text-white font-semibold text-xl px-8 py-2 outline-none rounded-full text-center uppercase" type="submit">Agree</button>
   </form>
   )
 }
