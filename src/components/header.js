@@ -1,33 +1,18 @@
-import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import Image from "./image"
+
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
+  <header>
+    <div className="">
+      <nav className="flex items-center justify-between flex-wrap bg-blue-900 pl-4 py-4">
+        <div className="flex items-center flex-grow text-white mr-6">
+          <Image />
+          <span className="pl-4 font-bold lg:text-4xl md:text-3xl sm:text-2xl xs:text-lg text-gray-300 tracking-tight">Kayak Fishing Association of New York Registration</span>
+        </div>
+      </nav>  
+    </div>  
   </header>
 )
 

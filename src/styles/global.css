@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  p {
+    @apply mb-2;
+  }
+  
+  .article {
+    & h1, & h2, & h3, & h4, & h5, & h6 {
+      @apply text-gray-900 mb-2;
+    }
+  
+    & p {
+      @apply leading-normal m-6;
+    }
+  
+    & ul {
+      @apply leading-normal mb-6;
+    }
+  
+    & blockquote {
+      @apply border-l-2 border-blue-700 bg-gray-300 p-3;
+  
+      & p {
+        @apply mb-2;
+      }
+    }
+  }
+  
+  
+}
