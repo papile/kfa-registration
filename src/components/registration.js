@@ -13,6 +13,7 @@ const Registration = () => {
             Name
           </label>
           <input
+            required
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
             id="grid-name"
             type="text"
@@ -26,6 +27,7 @@ const Registration = () => {
             email
           </label>
           <input
+          required
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             id="grid-email"
             type="email"
@@ -39,6 +41,7 @@ const Registration = () => {
             Address 1
           </label>
           <input
+          required
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             id="grid-address-1"
             type="text"
@@ -60,12 +63,14 @@ const Registration = () => {
         </div>
         <div class="w-full md:w-1/2 px-3">
           <label
+          
             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
             for="state"
           >
             State
           </label>
           <select
+          required
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             id="state"
             defaultValue="NY"
@@ -131,6 +136,7 @@ const Registration = () => {
             Zip
           </label>
           <input
+          required
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             id="grid-zip"
             type="numeric"
@@ -144,6 +150,7 @@ const Registration = () => {
             Primary Phone
           </label>
           <input
+          required
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             id="phone1"
             type="tel"
@@ -168,6 +175,7 @@ const Registration = () => {
         </h4>
         <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label
+          
             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
             for="ec-name"
           >
@@ -245,6 +253,7 @@ const Registration = () => {
           Renewal
         </label>
         <input
+        required
           class="w-1/2 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
           id="renewal"
           name="renewal"
@@ -266,6 +275,7 @@ const Registration = () => {
           name="renewal"
           value="false"
           type="radio"
+          required
         />
       </div>
       </div>

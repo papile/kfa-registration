@@ -1,8 +1,8 @@
 import React from "react"
 
 const dateString = () => {
-    let d = new Date();
-    return d.getMonth() + 1 + "/" + d.getDate() +"/" + d.getFullYear(); 
+  let d = new Date()
+  return d.getMonth() + 1 + "/" + d.getDate() + "/" + d.getFullYear()
 }
 
 const Signature = () => {
@@ -14,9 +14,10 @@ const Signature = () => {
             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
             for="grid-signature"
           >
-             Signature
+            Signature
           </label>
           <input
+            required
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
             id="grid-signature"
             type="text"
@@ -31,14 +32,20 @@ const Signature = () => {
             Date
           </label>
           <input
+            required
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             id="grid-date"
             type="date"
           />
         </div>
       </div>
-      <button class="flex-end bg-blue-900 text-white font-semibold text-xl px-8 py-2 outline-none rounded-full text-center uppercase" type="submit">Agree</button>
-  </form>
+      <button
+        class="flex-end bg-blue-900 text-white font-semibold text-xl px-8 py-2 outline-none rounded-full text-center uppercase"
+        type="submit"
+      >
+        Agree
+      </button>
+    </form>
   )
 }
 
