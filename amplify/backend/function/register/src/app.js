@@ -17,7 +17,7 @@ var awsServerlessExpressMiddleware = require("aws-serverless-express/middleware"
 var bodyParser = require("body-parser")
 var express = require("express")
 
-let environment = new paypal.core.SandboxEnvironment(clientId, clientSecret)
+let environment = new paypal.core.LiveEnvironment(clientId, clientSecret)
 let client = new paypal.core.PayPalHttpClient(environment)
 
 AWS.config.update({ region: process.env.TABLE_REGION })
@@ -27,16 +27,7 @@ const dynamodb = new AWS.DynamoDB.DocumentClient()
 let pendingTableName = "pendingRegistrations-" + process.env.ENV
 let registrationTableName = "registrations-" + process.env.ENV
 
-const userIdPresent = false // TODO: update in case is required to use that definition
-const partitionKeyName = "id"
-const partitionKeyType = "S"
-const sortKeyName = "email"
-const sortKeyType = "S"
-const hasSortKey = sortKeyName !== ""
 const path = "/register"
-const UNAUTH = "UNAUTH"
-const hashKeyPath = "/:" + partitionKeyName
-const sortKeyPath = hasSortKey ? "/:" + sortKeyName : ""
 // declare a new express app
 var app = express()
 app.use(bodyParser.json())
@@ -63,15 +54,7 @@ const addPending = async (paypalId, payload) => {
     },
   }
 
-  return new Promise((resolve, reject) => {
-    dynamodb.put(putItemParams, (err, data) => {
-      if (err) {
-        reject(err)
-      } else {
-        resolve("Stored")
-      }
-    })
-  })
+  return await dynamodb.put(putItemParams).promise()
 }
 
 const copyPendingPurchase = async (id, payment) => {
@@ -80,24 +63,24 @@ const copyPendingPurchase = async (id, payment) => {
     Key: { id: id },
   }
 
-  return await dynamodb
-    .get(getItemParams, async (err, data) => {
-      if (err) {
-        reject("Could not load items: " + err.message)
-      } else {
-        const putItemParams = {
-          TableName: registrationTableName,
-          Item: {
-            id: data.Item.id,
-            registration: data.Item.registration,
-            payment: payment,
-            createdAt: Date.now(),
-          },
-        }
-        await dynamodb.put(putItemParams).promise()
-      }
-    })
-    .promise()
+  try {
+    console.log("Awaiting Data")
+    data = await dynamodb.get(getItemParams).promise()
+    console.log(data)
+    const putItemParams = {
+      TableName: registrationTableName,
+      Item: {
+        id: data.Item.id,
+        registration: data.Item.registration,
+        payment: payment,
+        createdAt: Date.now(),
+      },
+    }
+    console.log("ready to put")
+    return await dynamodb.put(putItemParams).promise()
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 // convert url string param to expected Type
@@ -154,7 +137,6 @@ let order = price => ({
 app.get(path + "/paid", async function (req, res) {
   capturePayment(req.query["token"])
     .then(async payment => {
-      console.log(payment)
       await copyPendingPurchase(req.query["token"], payment)
       res.redirect("https://signup.kfa-ny.org/success")
     })
@@ -188,8 +170,9 @@ app.post(path, async function (req, res) {
     .then(async response => {
       let approveLink = response.result.links.find(x => x.rel == "approve").href
       res.statusCode = 200
-      await addPending(response.result.id, req.body)
-      res.redirect(approveLink)
+      addPending(response.result.id, req.body).then(() =>
+        res.redirect(approveLink)
+      )
     })
     .catch(reason => "Transaction failed " + reason)
 })

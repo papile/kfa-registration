@@ -10,7 +10,7 @@ const IndexPage = () => (
     <SEO title="Home" />
     <h1 className="mt-10 pt-5">2021 MEMBERSHIP APPLICATION / RENEWAL AND RELEASE</h1>
     <blockquote>
-    <p>The undersigned hereby applies for membership or renewal, in the Kayak Fishing Association of NY, Ltd. (“KFA”). I have read, understand and agree to the KFA Bylaws and the inherent risk in participating in the activities of KFA, including fishing trips, which KFA may make available to members. I understand that KFA activities may takeme into remote areas, and that I may not be able to be promptly evacuated or receive proper medical care in the event of injury or disease. I further understand that I am solely responsible for all costs of medical treatment and transportation.</p>
+    <p>The undersigned hereby applies for membership or renewal, in the Kayak Fishing Association of NY, Ltd. (“KFA”). I have read, understand and agree to the KFA Bylaws and the inherent risk in participating in the activities of KFA, including fishing trips, which KFA may make available to members. I understand that KFA activities may take me into remote areas, and that I may not be able to be promptly evacuated or receive proper medical care in the event of injury or disease. I further understand that I am solely responsible for all costs of medical treatment and transportation.</p>
     
     <p>I represent that I have the knowledge and experience to kayak in any sea or water condition and weather in which I choose to participate. I acknowledge that I am solely responsible for my decision to participate even if the KFA or any of its members decides to kayak or fish.</p>
     
