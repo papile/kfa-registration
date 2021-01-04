@@ -1,0 +1,35 @@
+{
+    "paths": [
+        {
+            "name": "/register",
+            "lambdaFunction": "register",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/register"
+        }
+    ],
+    "resourceName": "registration",
+    "apiName": "registration",
+    "functionArns": [
+        {
+            "lambdaFunction": "register"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-kfaregistration-main-175104-authRole",
+        "unAuthRoleName": "amplify-kfaregistration-main-175104-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "register",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

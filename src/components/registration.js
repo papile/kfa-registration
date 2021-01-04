@@ -2,77 +2,112 @@ import React from "react"
 
 const Registration = () => {
   return (
-    <form className="m-5 p-5 w-full max-w-lg">
+    <form className="m-5 p-5 w-full max-w-lg" action="http://localhost:3000/register" method="post">
       <h1>Registration Form</h1>   
       <div className="flex flex-wrap -mx-3 mb-6">
         <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label
-            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="grid-name"
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="name"
           >
             Name
           </label>
           <input
             required
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-            id="grid-name"
+            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+            id="name"
+            name="name"
             type="text"
           />
         </div>
-        <div class="w-full md:w-1/2 px-3">
+        <div className="w-full md:w-1/2 px-3">
           <label
-            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="grid-email"
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="email"
           >
             email
           </label>
           <input
           required
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            id="grid-email"
+            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            id="email"
+            name="email"
             type="email"
           />
         </div>
-        <div class="w-full px-3">
+        <div className="w-full px-3">
           <label
-            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="grid-address-1"
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="kfaForumName"
+          >
+            KFA Forum Name
+          </label>
+          <input
+          required
+            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            id="kfaForumName"
+            name="kfaForumName"
+            type="text"
+          />
+        </div>
+
+        <div className="w-full px-3">
+          <label
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="address1"
           >
             Address 1
           </label>
           <input
           required
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            id="grid-address-1"
+            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            id="address1"
+            name="address1"
             type="text"
           />
         </div>
 
-        <div class="w-full px-3">
+        <div className="w-full px-3">
           <label
-            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="grid-address-2"
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="address2"
           >
             Address 2
           </label>
           <input
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            id="grid-address-2"
+            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            id="address2"
+            name="address2"
             type="text"
           />
         </div>
-        <div class="w-full md:w-1/2 px-3">
+        <div className="w-full px-3">
+          <label
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="city"
+          >
+            City
+          </label>
+          <input
+            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            id="city"
+            name="city"
+            type="text"
+          />
+        </div>
+        <div className="w-full md:w-1/2 px-3">
           <label
           
-            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="state"
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="state"
           >
             State
           </label>
           <select
           required
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             id="state"
+            name="state"
             defaultValue="NY"
           >
             <option value="AL">Alabama</option>
@@ -128,44 +163,47 @@ const Registration = () => {
             <option value="WY">Wyoming</option>
           </select>
         </div>
-        <div class="w-full md:w-1/2 px-3">
+        <div className="w-full md:w-1/2 px-3">
           <label
-            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="grid-zip"
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="zip"
           >
             Zip
           </label>
           <input
           required
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            id="grid-zip"
+            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            id="zip"
+            name="zip"
             type="numeric"
           />
         </div>
-        <div class="w-full md:w-1/2 px-3">
+        <div className="w-full md:w-1/2 px-3">
           <label
-            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="phone1"
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="phone1"
           >
             Primary Phone
           </label>
           <input
           required
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             id="phone1"
+            name="phone1"
             type="tel"
           />
         </div>
-        <div class="w-full md:w-1/2 px-3">
+        <div className="w-full md:w-1/2 px-3">
           <label
-            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="phone2"
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="phone2"
           >
             Other Phone
           </label>
           <input
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             id="phone2"
+            name="phone2"
             type="tel"
           />
         </div>
@@ -176,67 +214,72 @@ const Registration = () => {
         <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label
           
-            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="ec-name"
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="ecName"
           >
             Name
           </label>
           <input
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-            id="ec-name"
+            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+            id="ecName"
+            name="ecName"
             type="text"
           />
         </div>
         <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label
-            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="ec-relationship"
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="ecRelationship"
           >
             Relationship
           </label>
           <input
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-            id="ec-relationship"
+            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+            id="ecRelationship"
+            name="ecRelationship"
             type="text"
           />
         </div>
 
-        <div class="w-full md:w-1/2 lg:w-1/3 px-3">
+        <div className="w-full md:w-1/2 lg:w-1/3 px-3">
           <label
-            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="ec-mobile"
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="ecMobile"
           >
             Mobile
           </label>
           <input
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            id="ec-mobile"
+            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            id="ecMobile"
+            name="ecMobile"
             type="tel"
           />
         </div>
-        <div class="w-full md:w-1/2 lg:w-1/3 px-3">
+        <div className="w-full md:w-1/2 lg:w-1/3 px-3">
           <label
-            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="ec-home"
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="ecHome"
           >
             Home
           </label>
           <input
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            id="ec-home"
+            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            id="ecHome"
+            name="ecHome"
             type="tel"
           />
         </div>
-        <div class="w-full md:w-1/2 lg:w-1/3 px-3">
+        <div className="w-full md:w-1/2 lg:w-1/3 px-3">
           <label
-            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="ec-work"
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="ecWork"
           >
             Work
           </label>
           <input
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            id="ec-work"
+            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            id="ecWork"
+            name="ecWork"
             type="tel"
           />
         </div>
@@ -245,32 +288,32 @@ const Registration = () => {
           Registration Type:
         </h4>
       <div className="flex flex-wrap -mx-3 mb-6">
-      <div class="w-1/2 md:w-1/2 lg:w-1/3 px-3">
+      <div className="w-1/2 md:w-1/2 lg:w-1/3 px-3">
         <label
-          class="w-1/2 uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-          for="renewal"
+          className="w-1/2 uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+          htmlFor="renewal"
         >
           Renewal
         </label>
         <input
         required
-          class="w-1/2 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          className="w-1/2 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
           id="renewal"
           name="renewal"
           value="true"
           type="radio"
         />
         </div>
-      <div class="w-1/4 md:w-1/2 lg:w-1/3 px-3">
+      <div className="w-1/4 md:w-1/2 lg:w-1/3 px-3">
 
         <label
-          class="w-1/2 uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-          for="new-membership"
+          className="w-1/2 uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+          htmlFor="new-membership"
         >
           New
         </label>
         <input
-          class="w-1/2 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          className="w-1/2 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
           id="new-membership"
           name="renewal"
           value="false"
@@ -279,9 +322,8 @@ const Registration = () => {
         />
       </div>
       </div>
-      <button class="flex-end bg-blue-900 text-white font-semibold text-xl px-8 py-2 outline-none rounded-full text-center uppercase">
-        Sign Up
-      </button>
+      
+      <input type="submit" value="Sign Up" className="flex-end bg-blue-900 text-white font-semibold text-xl px-8 py-2 outline-none rounded-full text-center uppercase"/>
     </form>
   )
 }

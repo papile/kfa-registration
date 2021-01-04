@@ -1,0 +1,20 @@
+{
+  "name": "registrationPayment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@paypal/checkout-server-sdk": "^1.0.2",
+    "aws-sdk": "^2.580.0",
+    "aws-serverless-express": "^3.3.5",
+    "body-parser": "^1.17.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.15.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

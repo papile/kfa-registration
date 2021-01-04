@@ -1,0 +1,5 @@
+{
+    "tableName": "pendingRegistrations",
+    "partitionKeyName": "id",
+    "partitionKeyType": "S"
+}
