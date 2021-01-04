@@ -2,7 +2,7 @@ import React from "react"
 
 const Registration = () => {
   return (
-    <form className="m-5 p-5 w-full max-w-lg" action="http://localhost:3000/register" method="post">
+    <form className="m-5 p-5 w-full max-w-lg" action="https://n6vn9rsexi.execute-api.us-east-1.amazonaws.com/main/register" method="post">
       <h1>Registration Form</h1>   
       <div className="flex flex-wrap -mx-3 mb-6">
         <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">

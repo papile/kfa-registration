@@ -108,7 +108,7 @@ const convertUrlType = (param, type) => {
 
 async function capturePayment(token) {
   request = new paypal.orders.OrdersCaptureRequest(token)
-  request.headers['PayPal-Mock-Response'] = '{"mock_application_codes" : "INSTRUMENT_DECLINED"}';
+  // request.headers['PayPal-Mock-Response'] = '{"mock_application_codes" : "INSTRUMENT_DECLINED"}';
   request.requestBody({})
   return await client.execute(request)
 }
@@ -116,7 +116,7 @@ async function capturePayment(token) {
 let order = price => ({
   intent: "CAPTURE",
   application_context: {
-    return_url: "http://localhost:3000/register/paid",
+    return_url: "https://n6vn9rsexi.execute-api.us-east-1.amazonaws.com/main/register/paid",
     cancel_url: "https://signup.kfa-ny.org",
     brand_name: "Kayak Fishing Association of NY",
     locale: "en-US",
