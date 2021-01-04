@@ -59,6 +59,7 @@ const addPending = async (paypalId, payload) => {
     Item: {
       id: paypalId,
       registration: payload,
+      createdAt: Date.now(),
     },
   }
 
@@ -73,27 +74,30 @@ const addPending = async (paypalId, payload) => {
   })
 }
 
-const copyPendingPurchase = async(id, payment) => {
+const copyPendingPurchase = async (id, payment) => {
   let getItemParams = {
     TableName: pendingTableName,
     Key: { id: id },
   }
 
-  return await dynamodb.get(getItemParams, async (err, data) => {
-    if (err) {
-      reject("Could not load items: " + err.message)
-    } else {
-      const putItemParams = {
-        TableName: registrationTableName,
-        Item: {
-          id: data.Item.id,
-          registration: data.Item.registration,
-          payment: payment,
-        },
+  return await dynamodb
+    .get(getItemParams, async (err, data) => {
+      if (err) {
+        reject("Could not load items: " + err.message)
+      } else {
+        const putItemParams = {
+          TableName: registrationTableName,
+          Item: {
+            id: data.Item.id,
+            registration: data.Item.registration,
+            payment: payment,
+            createdAt: Date.now(),
+          },
+        }
+        await dynamodb.put(putItemParams).promise()
       }
-      await dynamodb.put(putItemParams).promise()
-    }
-  }).promise()
+    })
+    .promise()
 }
 
 // convert url string param to expected Type
@@ -116,7 +120,8 @@ async function capturePayment(token) {
 let order = price => ({
   intent: "CAPTURE",
   application_context: {
-    return_url: "https://n6vn9rsexi.execute-api.us-east-1.amazonaws.com/main/register/paid",
+    return_url:
+      "https://n6vn9rsexi.execute-api.us-east-1.amazonaws.com/main/register/paid",
     cancel_url: "https://signup.kfa-ny.org",
     brand_name: "Kayak Fishing Association of NY",
     locale: "en-US",
@@ -150,10 +155,20 @@ app.get(path + "/paid", async function (req, res) {
   capturePayment(req.query["token"])
     .then(async payment => {
       console.log(payment)
-     await copyPendingPurchase(req.query["token"], payment)
-     res.redirect("https://signup.kfa-ny.org/success")
+      await copyPendingPurchase(req.query["token"], payment)
+      res.redirect("https://signup.kfa-ny.org/success")
     })
-  .catch(failure => res.send("<h3>There was a problem with your order. Please contact info@kfa-ny.org with the content below</h3><pre>" + "\n" + "ID: " + req.query["token"] + "\n" + JSON.stringify(failure) + "</pre>"))
+    .catch(failure =>
+      res.send(
+        "<h3>There was a problem with your order. Please contact info@kfa-ny.org with the content below</h3><pre>" +
+          "\n" +
+          "ID: " +
+          req.query["token"] +
+          "\n" +
+          JSON.stringify(failure) +
+          "</pre>"
+      )
+    )
 })
 
 app.post(path, async function (req, res) {

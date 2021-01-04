@@ -322,7 +322,7 @@ const Registration = () => {
         />
       </div>
       </div>
-      
+      <p>Clicking "Sign Up" will send you to PayPal to pay the $25 dues. Please do not press back.</p>
       <input type="submit" value="Sign Up" className="flex-end bg-blue-900 text-white font-semibold text-xl px-8 py-2 outline-none rounded-full text-center uppercase"/>
     </form>
   )
