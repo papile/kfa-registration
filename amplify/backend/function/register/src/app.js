@@ -49,7 +49,7 @@ const addAgreement = async (ip, payload) => {
   let putItemParams = {
     TableName: agreementTableName,
     Item: {
-      id: payload.name,
+      name: payload.signature,
       agreement: payload.agreement,
       createdAt: Date.now(),
       ip: ip
