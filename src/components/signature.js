@@ -2,6 +2,7 @@ import React from "react"
 
 const Signature = () => {
   return (
+    
     <form action="https://n6vn9rsexi.execute-api.us-east-1.amazonaws.com/main/register/agree" method="post" className="ml-10 w-full max-w-lg">
       <div className="flex flex-wrap -mx-3 mb-6">
         <div className="w-full md:w-2/3 px-3 mb-6 md:mb-0">
