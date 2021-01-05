@@ -25,6 +25,7 @@ AWS.config.update({ region: process.env.TABLE_REGION })
 const dynamodb = new AWS.DynamoDB.DocumentClient()
 
 let pendingTableName = "pendingRegistrations-" + process.env.ENV
+let agreementTableName = "agreements-" + process.env.ENV
 let registrationTableName = "registrations-" + process.env.ENV
 
 const path = "/register"
@@ -43,6 +44,20 @@ app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Headers", "*")
   next()
 })
+
+const addAgreement = async (ip, payload) => {
+  let putItemParams = {
+    TableName: agreementTableName,
+    Item: {
+      id: payload.name,
+      agreement: payload.agreement,
+      createdAt: Date.now(),
+      ip: ip
+    },
+  }
+
+  return await dynamodb.put(putItemParams).promise()
+}
 
 const addPending = async (paypalId, payload) => {
   let putItemParams = {
@@ -177,7 +192,10 @@ app.post(path, async function (req, res) {
     .catch(reason => "Transaction failed " + reason)
 })
 
-app.post(path + "/agree", function (_req, res) {
+app.post(path + "/agree", async function (req, res) {
+  var ip = req.headers['x-forwarded-for']
+  await addAgreement(ip, req.body)
+
   res.redirect("https://signup.kfa-ny.org/registration/")
 })
 
