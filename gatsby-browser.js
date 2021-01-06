@@ -7,5 +7,5 @@
 // You can delete this file if you're not using it
 import './src/styles/global.css'
 import Amplify, { Auth } from "aws-amplify"
-import awsConfig from "./src/aws-exports"
+import awsConfig from "./aws-exports"
 Amplify.configure(awsConfig)
