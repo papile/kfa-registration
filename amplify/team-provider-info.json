@@ -10,6 +10,11 @@
       "StackName": "amplify-kfaregistration-main-175104",
       "StackId": "arn:aws:cloudformation:us-east-1:212139978432:stack/amplify-kfaregistration-main-175104/80bce950-4af1-11eb-8f48-12909bffa46d",
       "AmplifyAppId": "d3uo75aqh3o6w6"
+    },
+    "categories": {
+      "auth": {
+        "cognitod5ea1d98": {}
+      }
     }
   }
 }

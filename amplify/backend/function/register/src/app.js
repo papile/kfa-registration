@@ -79,7 +79,6 @@ const copyPendingPurchase = async (id, payment) => {
   }
 
   try {
-    console.log("Awaiting Data")
     data = await dynamodb.get(getItemParams).promise()
     console.log(data)
     const putItemParams = {

@@ -1,0 +1,42 @@
+{
+    "paths": [
+        {
+            "name": "/admin",
+            "lambdaFunction": "register",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            },
+            "policyResourceName": "/admin"
+        }
+    ],
+    "resourceName": "registrationAdmin",
+    "apiName": "registrationAdmin",
+    "functionArns": [
+        {
+            "lambdaFunction": "register"
+        }
+    ],
+    "privacy": {
+        "auth": 1,
+        "unauth": 0,
+        "authRoleName": "amplify-kfaregistration-main-175104-authRole",
+        "unAuthRoleName": "amplify-kfaregistration-main-175104-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "register",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
